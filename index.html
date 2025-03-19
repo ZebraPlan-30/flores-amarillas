@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta importante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #ffecf2;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi novia? 💖</h1>
+    <div class="buttons">
+        <button id="yes" onclick="sayYes()">Sí</button>
+        <button id="no" onmouseover="moveNo()">No</button>
+    </div>
+
+    <script>
+        function moveNo() {
+            let x = Math.random() * 100 - 50; // Rango más corto (-50 a 50)
+            let y = Math.random() * 100 - 50; // Rango más corto (-50 a 50)
+            document.getElementById('no').style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function sayYes() {
+            document.body.innerHTML = "<h1>¡Sabía que dirías que sí! 💕✨</h1><p>Ahora oficialmente eres mi novia 😘</p>";
+        }
+    </script>
+
+</body>
+</html>
