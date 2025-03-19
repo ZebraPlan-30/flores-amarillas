@@ -26,6 +26,7 @@
             cursor: pointer;
             border-radius: 5px;
             position: absolute;
+            transition: transform 0.2s ease-in-out; /* Suaviza el movimiento */
         }
         #yes {
             background-color: #4CAF50;
@@ -50,8 +51,11 @@
     <script>
         function moveNo() {
             let button = document.getElementById('no');
-            let minMove = 50; // Distancia mínima para moverse
-            let maxMove = 150; // Distancia máxima para no irse tan lejos
+
+            // Detecta si el usuario está en un móvil
+            let isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+            let minMove = isMobile ? 80 : 50;  // Ajusta el rango para móviles
+            let maxMove = isMobile ? 200 : 150;
 
             let x = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
             let y = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
@@ -60,7 +64,12 @@
         }
 
         function sayYes() {
-            document.body.innerHTML = "<h1>¡Sabía que dirías que sí! 💕✨</h1><p>Ahora oficialmente somos novios 😘 para mi siempre ha sido un sí, sí a todo contigo hermosa 💖</p>";
+            document.body.innerHTML = `
+                <h1 style="color: #ff4081;">¡Sabía que dirías que sí! 💕✨</h1>
+                <p style="font-size: 18px;">Ahora oficialmente somos novios 😘<br>
+                Para mí siempre ha sido un <b>SÍ</b>, sí a todo contigo, hermosa 💖</p>
+                <img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" width="200">
+            `;
         }
     </script>
 
