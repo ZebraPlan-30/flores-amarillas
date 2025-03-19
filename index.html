@@ -25,15 +25,16 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            position: absolute;
         }
         #yes {
             background-color: #4CAF50;
             color: white;
+            position: relative;
         }
         #no {
             background-color: #f44336;
             color: white;
-            position: absolute;
             left: 50px;
         }
     </style>
@@ -48,9 +49,14 @@
 
     <script>
         function moveNo() {
-            let x = Math.random() * 100 - 50; // Rango más corto (-50 a 50)
-            let y = Math.random() * 100 - 50; // Rango más corto (-50 a 50)
-            document.getElementById('no').style.transform = `translate(${x}px, ${y}px)`;
+            let button = document.getElementById('no');
+            let minMove = 50; // Distancia mínima para moverse
+            let maxMove = 150; // Distancia máxima para no irse tan lejos
+
+            let x = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
+            let y = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
+
+            button.style.transform = `translate(${x}px, ${y}px)`;
         }
 
         function sayYes() {
