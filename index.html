@@ -38,7 +38,7 @@
             position: absolute;
             left: 50px;
         }
-        #next, #next2 {
+        #next, #next2, #next3, #next4, #next5, #next6, #next7 {
             background-color: #ff4081;
             color: white;
             display: none;
@@ -58,25 +58,13 @@
             let button = document.getElementById('no');
 
             let isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
-            let minMove = isMobile ? 80 : 50;
-            let maxMove = isMobile ? 200 : 150;
+            let minMove = isMobile ? 80 : 20;
+            let maxMove = isMobile ? 200 : 50;
 
             let x = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
             let y = (Math.random() > 0.5 ? 1 : -1) * (minMove + Math.random() * (maxMove - minMove));
 
             button.style.transform = `translate(${x}px, ${y}px)`;
-        }
-
-        function sayYes() {
-            document.body.innerHTML = `
-                <h1 style="color: #ff4081;">¡Sabía que dirías que sí! 💕✨</h1>
-                <p style="font-size: 18px;">Ahora oficialmente somos novios 😘<br>
-                Para mí siempre ha sido un <b>SÍ</b>, sí a todo contigo, hermosa 💖</p>
-                <img src="https://media4.giphy.com/media/3WW4Zm1F2MeoU/giphy.gif" width="220">
-                <br><button id="next" onclick="nextMessage()">Siguiente</button>
-            `;
-
-            document.getElementById("next").style.display = "block";
         }
 
         function nextMessage() {
@@ -97,8 +85,80 @@
                 <p style="font-size: 18px;">Yo todo torpe para bailar y tu toda diosa de la pista, definitivamente teniamos que estar juntos. 💕</p>
                 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzVnYWFwMGdvbzFrbTRicHl4djFmdzNsdnE2cmVyZjFsbnBibnVlOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tHIRLHtNwxpjIFqPdV/giphy.gif" width="220">
                 <br><h2>🎶 Haces que las más lindas y tontas canciones de mi playlist cobren sentido 🎶</h2>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/MYlrVO-e1BU?si=hTHWZ_g9KMZVDL2k&amp;start=22" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="315" height="315" src="https://www.youtube.com/embed/MYlrVO-e1BU?si=hTHWZ_g9KMZVDL2k&amp;start=22" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <br><button id="next3" onclick="nextMessage2()">Siguiente</button>
             `;
+
+            document.getElementById("next3").style.display = "block";
+        }
+
+        function nextMessage2() {
+            document.body.innerHTML = `
+                <h1 style="color: #ff4081;">💖 Un pensamiento que me ronda 💖</h1>
+                <p style="font-size: 18px;">Pasaron meses, pero seguía preguntándome...<br><i>'¿Quién será Pay de Miel? 🍯'</i><br>Pensaba en esa chica que me dejó cautivado y esperaba poder conocer... 💖</p>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNkYzZhN2I0NDk5ZWVhN2FlZWYxNGQ1OTFjMmZjNGE2MGZmNTQ2NSZlcD12MV91c2VyX2Zhdm9yaXRlcyZjdD1n/xT8qBqM2QyXvsHYdtS/giphy.gif" width="260">
+                <br><button id="next4" onclick="nextMessage3()">Siguiente</button>
+            `;
+            document.getElementById("next4").style.display = "block";
+        }
+
+        function nextMessage3() {
+            document.body.innerHTML = `
+                <h1 style="color: #ff4081;">💖 Ese momento especial 💖</h1>
+                <p style="font-size: 18px;">Y llegó el día en que te pude ver otra vez, tan hermosa como siempre. <br> Me cautivaste hasta el fondo de mi alma, desde ese momento supe que ya no me quería apartar de ti. 💖</p>
+                <img src="https://media.giphy.com/media/PPEFC1OJZvo2Zs3mrT/giphy.gif" width="220">
+                <br><button id="next5" onclick="finalMessage2()">Siguiente</button>
+            `;
+            document.getElementById("next5").style.display = "block";
+        }
+
+        function finalMessage2() {
+            document.body.innerHTML = `
+                <h1 style="color: #ff4081;">💖 Gracias por existir 💖</h1>
+                <p style="font-size: 18px;">Y hacerme tan feliz estos meses, quizás no puedo estar siempre contigo, pero te llevo en mi corazón todo el tiempo. <br> Solo soy este michi haciéndole frente a la vida, pero para ti estaré en todo momento. 💖</p>
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXFpMmdpM2oxMHJkcHA1YXJ5bXYyNXVncHFrb3g4cDNzaGJyd282OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif" width="220">
+                <br><button id="next6" onclick="nextMessage4()">Siguiente</button>
+            `;
+            document.getElementById("next6").style.display = "block";
+        }
+
+        function nextMessage4() {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+            const formattedTime = currentDate.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+
+        document.body.innerHTML = `
+            <h1 style="color: #ff4081;">💖 Algo importante para ti 💖</h1>
+            <p style="font-size: 18px;">Así que hoy, ${formattedDate} 💐 a las ${formattedTime}, tengo algo importante que decirte 👀 <br> Pero antes de que pases a la siguiente parte, ven a verme, te espero afuera 🐱</p>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHJ2ZWx3ajllc3oyM2tuYmEycHd4bHg4dmljNDRncmJmNWZmajZrOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Bm2INrLWqZ6vUkpnMz/giphy.gif" width="220">
+            <br><button id="next6" onclick="nextMessage5()">Siguiente</button>
+            `;
+                    
+        document.getElementById("next6").style.display = "block";
+}
+
+        function nextMessage5() {
+                    document.body.innerHTML = `
+                        <h1>¿Puedo ser tu novio? 👀🌻💖</h1>
+                        <div class="buttons">
+                            <button id="yes" onclick="sayYes()">Sí</button>
+                            <button id="no" onmouseover="moveNo()" onclick="moveNo()">No</button>
+                        </div>
+                    `;
+                    document.getElementById("next5").style.display = "block";
+                }
+
+
+        function sayYes() {
+            document.body.innerHTML = `
+                <h1 style="color: #ff4081;">¡Sabía que dirías que sí! 💕✨</h1>
+                <p style="font-size: 18px;">Ahora oficialmente somos novios 😘<br>
+                Para mí siempre ha sido un <b>SÍ</b>, sí a todo contigo, hermosa 💖</p>
+                <img src="https://media4.giphy.com/media/3WW4Zm1F2MeoU/giphy.gif" width="220">
+                <br><button id="next" onclick="nextMessage()">Siguiente</button>
+            `;
+
+            document.getElementById("next").style.display = "block";
         }
     </script>
 
